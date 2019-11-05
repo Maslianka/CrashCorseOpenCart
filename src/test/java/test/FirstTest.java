@@ -24,19 +24,21 @@ public class FirstTest {
 
     @Test
     public void testVerifyAddingToCart() {
-        WebElement searchField = driver.findElement(new By.ByXPath("//input[contains(@class,'input-lg')]"));
-        searchField.sendKeys("iPhone");
-        WebElement searchButton = driver.findElement(By.xpath("//button/i[contains(@class,'fa-search')]"));
-        searchButton.click();
-        WebElement buttonaAddToCart = driver.findElement(By.xpath("//button/span[contains(text(),'Add to Cart')]"));
-        buttonaAddToCart.click();
-        WebElement shoppingCartLabel =driver.findElement (By.xpath("//span[contains(text(),'Shopping Cart')]"));
-        shoppingCartLabel.click();
-        WebElement nameOnGrid = driver.findElement(By.cssSelector(".text-left span.text-danger"));
-        String actualResult = nameOnGrid.getText();
 
+        WebElement contactUslabel = driver.findElement(By.xpath("//a[contains(text(),'Contact Us')]"));
+        contactUslabel.click();
+        WebElement nameFild = driver.findElement(By.id("input-name"));
+        nameFild.sendKeys("Bob");
+        WebElement email = driver.findElement(By.id("input-email"));
+        email.sendKeys("bo@gmail.com");
+        WebElement enquiry = driver.findElement(By.id("input-enquiry"));
+        enquiry.sendKeys("Hi I am Bob Marley");
+        WebElement submit = driver.findElement(By.xpath("//input[contains(@class,'btn')]"));
+        submit.click();
+        WebElement continueBtn = driver.findElement(By.xpath("//a[contains(text(),'Continue')]"));
+        String actualResalt = continueBtn.getText();
 
-        Assert.assertEquals(actualResult, "Iphone");
+        Assert.assertEquals(actualResalt, "Continue");
     }
 
     @AfterClass
