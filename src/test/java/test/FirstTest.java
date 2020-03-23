@@ -21,6 +21,7 @@ public class FirstTest {
         driver.manage().window().maximize();
         Thread.sleep(2000);
     }
+    //comment
 
     @Test
     public void testVerifyAddingToCart() {
